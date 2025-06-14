@@ -2,6 +2,9 @@ import requests
 from datetime import datetime
 import smtplib
 from email.mime.text import MIMEText
+# Libraries to include if scheduling simplemented within this script
+#import schedule
+#import time
 
 def check_website_performance(url):
     try:
@@ -62,3 +65,13 @@ websites_to_monitor = [
 response_time_threshold = 2.0  # in seconds
 
 monitor_websites(websites_to_monitor, response_time_threshold)
+
+#TODO: Evaulate if scheduling should be implemented within this script
+'''
+# Define the monitoring schedule
+schedule.every(5).minutes.do(monitor_websites, websites=websites_to_monitor, threshold=response_time_threshold)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+'''
